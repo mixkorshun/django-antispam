@@ -2,15 +2,17 @@ sudo: false
 language: python
 cache: pip
 python:
-  - "3.4"
-  - "3.5"
-  - "3.6"
+  - '3.4'
+  - '3.5'
+  - '3.6'
+
 env:
   matrix:
-    - DJANGO="django>=1.8.0,<1.9.0"
-    - DJANGO="django>=1.9.0,<1.10.0"
-    - DJANGO="django>=1.10.1,<1.11.0"
-    - DJANGO="django>=1.11.0,<1.12.0"
+  - DJANGO="django>=1.8.0,<1.9.0"
+  - DJANGO="django>=1.9.0,<1.10.0"
+  - DJANGO="django>=1.10.1,<1.11.0"
+  - DJANGO="django>=1.11.0,<1.12.0"
+
 script:
   - pip install coverage codecov
   - pip install $DJANGO
@@ -18,3 +20,12 @@ script:
 
 after_success:
   - codecov
+
+deploy:
+  provider: pypi
+  user: mixkorshun
+  password:
+    secure: q6pTV/9HyOJU2/o5rWJd2dD1KMe97Cn2A6z5g+9HKzPNRWHD5df6AAIPjckBy6cDiM7LdZDZJXbBuM+l7m0eaqVofulwHCyxFz1xXTMFMQObKZJw3nsdbXffalwGoDQKnAMvWHmc2xWqAzlg685q1xViwsTNB2bauyNhMvoOQrrqJg10c2W9eJFaJsLhmV6n8imkGMFrg8IQhO9/5BObb3X1GO2YgfprM/qOxTx8lZUK8zYLMDL06Nad7LD1Ppln4G8MkP4jqOWioXARLuzNImsd2OKKpJVe5/aAbBYjJb2hwmBbrWPJuqVpyB5ntLtEOuM7j1K/NJylsGN38rzlj3PjqKRghfN9GabmJhKzURtnkZ7SU9MjCzq9c0TLaqmzHXK5JS1KZZo2KtiHKvSjDwfSL6ILsXSWxc/SAq9CD8MM1G0wkCEaQtPeKMZTyBu7TkRGwKq47oFiDXXnFjeZqHT0pGVu87wgaAL8zHxF1NCOIbef4DfCDAfdhoIgnnhU19aSp0M5eg2ghhjYLIc75RSuVlO6DjvKoIVJHIpPyWytIJh0zJDcKizuEPScIRlCiBXnEXJl921FAZ8sM7rfFOEwkFw9w3wJoPe9dOPl4aDxJ6auiTGSKIjLhMc8H78dq925nij0tAng4CpXJFvV+KcjuyHX7GeYyfjxk8KRCWA=
+  distributions: "sdist bdist_wheel"
+  on:
+    tags: true
