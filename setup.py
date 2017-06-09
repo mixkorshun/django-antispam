@@ -3,7 +3,16 @@ from setuptools import setup, find_packages
 setup(
     name='django-antispam',
     version='0.1.0',
+    url='https://github.com/mixkorshun/django-antispam',
     description='Anti-spam protection tools for django applications.',
+    keywords=['anti-spam', 'antispam', 'spam'],
+
+    author='Vladislav Bakin',
+    author_email='mixkorshun@gmail.com',
+    maintainer='Vladislav Bakin',
+    maintainer_email='mixkorshun@gmail.com',
+
+    license='MIT',
 
     install_requires=[
         'django',
