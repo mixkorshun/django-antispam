@@ -11,7 +11,7 @@ setup(
         'python-akismet',
     ],
 
-    packages=find_packages(exclude=['tests.*', 'tests',]),
+    packages=find_packages(exclude=['tests.*', 'tests']),
 
     test_suite='tests',
 
