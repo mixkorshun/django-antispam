@@ -12,7 +12,7 @@ class HoneypotInputTests(TestCase):
         self.widget = HoneypotInput()
 
         # patch for support both django versions - 1.11 and 1.10
-        HoneypotInput._render = Mock(
+        self.widget._render = Mock(
             return_value='<input />'
         )
 
