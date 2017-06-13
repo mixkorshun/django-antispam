@@ -11,6 +11,7 @@ Documentation
 
    getstarted
    reference
+   api/modules
 
 Indices and tables
 ==================
