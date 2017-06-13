@@ -99,7 +99,7 @@ class ReCAPTCHATests(TestCase):
         self.assertTrue(True)
 
     @patch('antispam.captcha.forms.requests')
-    def test_recaptcha_validation_unexpected_error(self, requests):
+    def test_recaptcha_pass_on_error_unexpected_error(self, requests):
         self.field.pass_on_error = True
 
         requests.post.return_value = self._get_response({'success': False, 'error-codes': ['bad-request']})
