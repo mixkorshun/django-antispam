@@ -2,10 +2,12 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-antispam',
-    version='0.2.0',
+    version='0.3.0',
     url='https://github.com/mixkorshun/django-antispam',
     description='Anti-spam protection tools for django applications.',
     keywords=['anti-spam', 'antispam', 'spam'],
+
+    long_description=open('README.rst', 'r').read(),
 
     author='Vladislav Bakin',
     author_email='mixkorshun@gmail.com',
