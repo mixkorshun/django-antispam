@@ -43,4 +43,13 @@ Add the following settings::
     AKISMET_TEST_MODE = False
 
 
+Contributing
+------------
+
+If you have any valuable contribution, suggestion or idea,
+please let us know as well because we will look into it.
+
+Pull requests are welcome too.
+
+
 .. _documentation: https://django-antispam.readthedocs.io/
