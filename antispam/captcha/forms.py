@@ -15,7 +15,7 @@ class ReCAPTCHA(forms.Field):
         'bad-request': _('reCAPTCHA cannot be checked due configuration problem.'),
     }
 
-    def __init__(self, sitekey, secretkey, timeout=None, pass_on_error=None, **kwargs):
+    def __init__(self, sitekey=None, secretkey=None, timeout=None, pass_on_error=None, **kwargs):
         self.sitekey = sitekey or getattr(settings, 'RECAPTCHA_SITEKEY')
         self.secretkey = secretkey or getattr(settings, 'RECAPTCHA_SECRETKEY')
 
@@ -45,19 +45,19 @@ class ReCAPTCHA(forms.Field):
             }, timeout=self.timeout)
 
             resp.raise_for_status()
-        except requests.RequestException:
+        except IOError:
             if self.pass_on_error:
                 return
 
-            raise ValidationError(self.error_messages['connection_error'], code='captcha')
+            raise ValidationError(self.error_messages['connection-error'], code='captcha-error')
 
         resp = resp.json()
 
         if not resp['success']:
             if 'missing-input-response' in resp['error-codes'] or 'invalid-input-response' in resp['error-codes']:
-                raise ValidationError(self.error_messages['invalid'], code='captcha')
+                raise ValidationError(self.error_messages['invalid'], code='captcha-invalid')
             else:
                 if self.pass_on_error:
                     return
 
-                raise ValidationError(self.error_messages['bad-request'])
+                raise ValidationError(self.error_messages['bad-request'], code='captcha-error')
