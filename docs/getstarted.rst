@@ -3,16 +3,9 @@
 Get started
 ===========
 
-Installing django-antispam
---------------------------
-
 The package can be installed using::
 
     pip install django-antispam
-
-
-Configuration
--------------
 
 Add the following settings::
 
