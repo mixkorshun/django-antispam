@@ -6,4 +6,28 @@
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Anti-spam protection tools for django applications.
+Various anti-spam protection tools for django applications.
+
+See the [documentation](https://django-antispam.readthedocs.io/) for more details.
+
+## Installation
+
+The package can be installed using:
+```commandline
+$ pip install django-antispam
+```
+
+And add the following settings:
+```python
+INSTALLED_APPS += (
+    'antispam',
+)
+
+# to use Akismet protection
+
+AKISMET_API_KEY = '<akismet api-key>'
+
+AKISMET_SITE_URL = '<base site url>'
+
+AKISMET_TEST_MODE = False
+```
