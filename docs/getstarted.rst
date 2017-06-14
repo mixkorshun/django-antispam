@@ -11,6 +11,10 @@ Add the following settings::
 
     INSTALLED_APPS += (
         'antispam',
+
+        'antispam.akismet',
+        'antispam.honeypot',
+        'antispam.captcha',
     )
 
     # to use Akismet protection
