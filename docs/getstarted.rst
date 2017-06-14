@@ -21,3 +21,14 @@ Add the following settings::
 
     AKISMET_TEST_MODE = False
 
+    # reCAPTCHA site-wide configuration
+
+    RECAPTCHA_SITEKEY = 'sitekey'
+
+    RECAPTCHA_SECRETKEY = 'secretkey'
+
+    RECAPTCHA_WIDGET = 'antispam.captcha.widgets.ReCAPTCHA'
+
+    RECAPTCHA_TIMEOUT = 5
+
+    RECAPTCHA_PASS_ON_ERROR = False

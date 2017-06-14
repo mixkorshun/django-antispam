@@ -10,7 +10,7 @@ Documentation
    :maxdepth: 1
 
    getstarted
-   reference
+   usage
    api/modules
 
 Indices and tables
