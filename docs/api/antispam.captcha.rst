@@ -7,11 +7,6 @@ antispam\.captcha
 antispam\.captcha\.default\_settings
 ------------------------------------
 
-.. automodule:: antispam.captcha.default_settings
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 antispam\.captcha\.forms
 ------------------------
 

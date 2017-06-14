@@ -6,6 +6,9 @@ register = template.Library()
 
 @register.simple_tag
 def recaptcha_init():
+    """
+    Render reCAPTCHA script tag.
+    """
     url = 'https://www.google.com/recaptcha/api.js'
 
     return mark_safe('<script type="text/javascript" src="%s" async defer></script>' % url)

@@ -9,6 +9,11 @@ from . import default_settings
 
 
 class ReCAPTCHA(forms.Field):
+    """
+    reCAPTCHA form field.
+    
+    Only single field on page can be shown.
+    """
     default_error_messages = {
         'connection-error': _('Connection to reCAPTCHA server failed.'),
         'invalid': _('reCAPTCHA invalid or expired. Please try again'),
@@ -16,6 +21,12 @@ class ReCAPTCHA(forms.Field):
     }
 
     def __init__(self, sitekey=None, secretkey=None, timeout=None, pass_on_error=None, **kwargs):
+        """
+        :param sitekey: site key (public)
+        :param secretkey: secret key (private)
+        :param timeout: connection to recaptcha service timeout
+        :param pass_on_error: do not raise exception if recaptcha service is not working.
+        """
         self.sitekey = sitekey or getattr(settings, 'RECAPTCHA_SITEKEY')
         self.secretkey = secretkey or getattr(settings, 'RECAPTCHA_SECRETKEY')
 
@@ -36,6 +47,12 @@ class ReCAPTCHA(forms.Field):
         super().__init__(**kwargs)
 
     def validate(self, value):
+        """
+        Validate reCAPTCHA value.
+        
+        :raise ValidationError with code="captcha-error" if reCAPTCHA service is unavailable or working incorrectly.
+        :raise ValidationError with code="captcha-invalid" if reCAPTCHA validation failed.
+        """
         super().validate(value)
 
         try:
