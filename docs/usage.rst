@@ -95,3 +95,15 @@ Use ReCAPTCHA protection in your project form:
 **django-antispam** package provide 2 widgets of reCAPTCHA:
  * ``antispam.captcha.widgets.ReCAPTCHA`` - default reCAPTCHA v2 widget
  * ``antispam.captcha.widgets.InvisibleReCAPTCHA`` - reCAPTCHA Invisible widget
+
+To display reCAPTCHA on website page, you must add reCAPTCHA js script in template:
+
+..  code-block:: django
+
+    {% load recaptcha %}
+
+    {% block head %}
+        ...
+
+        {% recaptcha_init %}
+    {% endblock %}
