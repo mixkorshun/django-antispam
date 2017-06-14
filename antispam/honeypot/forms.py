@@ -6,6 +6,9 @@ from .widgets import HoneypotInput
 
 
 class HoneypotField(forms.CharField):
+    """
+    Honeypot form field.
+    """
     default_error_messages = {
         'invalid': _('Enter a number.'),
         'honeypot': _('Invalid value for honey pot field.'),
@@ -21,6 +24,11 @@ class HoneypotField(forms.CharField):
         super().__init__(**kwargs)
 
     def validate(self, value):
+        """
+        Validates user entered form value.
+        :param value: user-input
+        :raise ValidationError with code="spam-protection" if honeypot check is not passed.
+        """
         super().validate(value)
 
         if value:
