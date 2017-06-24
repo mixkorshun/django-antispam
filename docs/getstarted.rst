@@ -12,12 +12,12 @@ Add the following settings::
     INSTALLED_APPS += (
         'antispam',
 
-        'antispam.akismet',
-        'antispam.honeypot',
-        'antispam.captcha',
+      # 'antispam.akismet',
+      # 'antispam.honeypot',
+      # 'antispam.captcha',
     )
 
-    # to use Akismet protection
+    # Akismet protection configuration (optional)
 
     AKISMET_API_KEY = '<akismet api-key>'
 
@@ -25,7 +25,7 @@ Add the following settings::
 
     AKISMET_TEST_MODE = False
 
-    # reCAPTCHA site-wide configuration
+    # reCAPTCHA default configuration (optional)
 
     RECAPTCHA_SITEKEY = 'sitekey'
 

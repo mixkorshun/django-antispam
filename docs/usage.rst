@@ -11,7 +11,7 @@ Also known as **spamtrap** technique.
 
 .. seealso:: You can read more about this technique at `Wikipedia <https://en.wikipedia.org/wiki/Spamtrap>`_.
 
-Protection of form is very simple, just add an HoneypotField to your form:
+Form protection is very simple, just add a HoneypotField to your form:
 
 ..  code-block:: python
 
@@ -22,7 +22,7 @@ Protection of form is very simple, just add an HoneypotField to your form:
         name = forms.CharField()
         spam_honeypot_field = HoneypotField()
 
-HoneypotField use standard form validation behaviour to work.
+For its work, HoneypotField uses standard validation behaviour form.
 If spam submit was detected - ``ValidationError`` with ``spam-protection`` code will be raised.
 
 
@@ -33,7 +33,7 @@ Akismet is an advanced hosted anti-spam service aimed at thwarting the underbell
 
 .. seealso:: You can read more at Akismet `official website <https://akismet.com/>`_.
 
-Use Akismet protection in your project:
+Use Akismet protection for your project:
 
 ..  code-block:: python
 
@@ -92,11 +92,11 @@ Use ReCAPTCHA protection in your project form:
 
         captcha = ReCAPTCHA()
 
-**django-antispam** package provide 2 widgets of reCAPTCHA:
+**django-antispam** package provides 2 widgets of reCAPTCHA:
  * ``antispam.captcha.widgets.ReCAPTCHA`` - default reCAPTCHA v2 widget
  * ``antispam.captcha.widgets.InvisibleReCAPTCHA`` - reCAPTCHA Invisible widget
 
-To display reCAPTCHA on website page, you must add reCAPTCHA js script in template:
+To display reCAPTCHA on website page, you should add reCAPTCHA js script into the template:
 
 ..  code-block:: django
 
