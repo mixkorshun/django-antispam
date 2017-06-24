@@ -5,8 +5,10 @@ from .utils import get_client_ip
 
 class Request:
     """
-    Akismet request. Contains request specific data.
+    Akismet request.
+    Contains request specific data.
     """
+
     @classmethod
     def from_django_request(cls, request):
         """
@@ -32,7 +34,7 @@ class Request:
 
     def as_params(self):
         """
-        Converts object to akismet request params.
+        Converts object to Akismet request params.
         
         :rtype dict
         """
@@ -45,7 +47,9 @@ class Request:
 
 class Author:
     """
-    Akismet author. Contains author specific data.
+    Akismet author.
+    
+    Contains author specific data.
     """
 
     @classmethod
@@ -76,7 +80,7 @@ class Author:
 
     def as_params(self):
         """
-        Converts object to akismet request params.
+        Converts object to Akismet request params.
 
         :rtype dict
         """
@@ -91,7 +95,8 @@ class Author:
 
 class Site:
     """
-    Akismet site (also known as blog). Contains site specific data.
+    Akismet site (also known as `blog`).
+    Contains site specific data.
     """
 
     def __init__(self, base_url=None, language_code=None):
@@ -100,7 +105,7 @@ class Site:
 
     def as_params(self):
         """
-        Converts object to akismet request params.
+        Converts object to Akismet request params.
 
         :rtype dict
         """
@@ -113,7 +118,8 @@ class Site:
 
 class Comment:
     """
-    Akismet comment. Contains comment specific data, include author and site.
+    Akismet comment.
+    Contains comment specific data, including author and site.
     """
 
     def __init__(self, content, type=None, permalink=None, author=None, site=None):
@@ -135,7 +141,7 @@ class Comment:
 
     def as_params(self):
         """
-        Converts object to akismet request params.
+        Converts object to Akismet request params.
 
         :rtype dict
         """

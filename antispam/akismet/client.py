@@ -45,7 +45,7 @@ def submit(request, comment, is_spam):
     """
     Submit given comment to Akismet.
     
-    Information about comment status must be provided (spam/not spam)
+    Information about the comment status must be provided (spam/not spam).
 
     :type request: antispam.akismet.Request
     :type request: antispam.akismet.Comment 

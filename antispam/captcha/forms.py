@@ -12,7 +12,7 @@ class ReCAPTCHA(forms.Field):
     """
     reCAPTCHA form field.
     
-    Only single field on page can be shown.
+    Only one field can be used on page.
     """
     default_error_messages = {
         'connection-error': _('Connection to reCAPTCHA server failed.'),

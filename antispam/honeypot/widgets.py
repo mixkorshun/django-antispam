@@ -4,7 +4,7 @@ from django.utils.safestring import mark_safe
 
 class HoneypotInput(forms.TextInput):
     """
-    Default honey pot field widget.
+    Default honeypot field widget.
     
     Display text input in hidden div.
     """
