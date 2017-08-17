@@ -5,13 +5,13 @@ from django.conf import settings
 def get_connection(api_key=None, blog=None, is_test=None):
     """
     Get Akismet client object.
-    
+
     If no connection params provided, use params from django project settings.
 
     :param api_key: Akismet API key
     :param blog: blog base url
     :param is_test: test mode
-    :rtype akismet.Akismet
+    :rtype: akismet.Akismet
     :return: akismet client
     """
 

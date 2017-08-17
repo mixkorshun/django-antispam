@@ -28,7 +28,7 @@ class HoneypotField(forms.CharField):
         Validates form field value entered by user.
         
         :param value: user-input
-        :raise ValidationError with code="spam-protection" if honeypot check failed.
+        :raise: ValidationError with code="spam-protection" if honeypot check failed.
         """
         super().validate(value)
 
