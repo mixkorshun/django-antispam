@@ -9,13 +9,13 @@ The package can be installed using::
 
 Add the following settings::
 
-    INSTALLED_APPS += (
+    INSTALLED_APPS += [
         'antispam',
 
       # 'antispam.akismet',
       # 'antispam.honeypot',
       # 'antispam.captcha',
-    )
+    ]
 
     # Akismet protection configuration (optional)
 

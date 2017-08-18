@@ -6,12 +6,12 @@ Usage
 Honeypot field
 --------------
 
-Honey pot is a spam protection technique to detect and block automatic spam spiders on your website.
+Honeypot is a spam protection technique to detect and block automatic spam spiders on your website.
 Also known as **spamtrap** technique.
 
 .. seealso:: You can read more about this technique at `Wikipedia <https://en.wikipedia.org/wiki/Spamtrap>`_.
 
-Form protection is very simple, just add a HoneypotField to your form:
+Form protection is very simple, just add a ``HoneypotField`` to your form:
 
 ..  code-block:: python
 
@@ -22,7 +22,7 @@ Form protection is very simple, just add a HoneypotField to your form:
         name = forms.CharField()
         spam_honeypot_field = HoneypotField()
 
-For its work, HoneypotField uses standard validation behaviour form.
+HoneypotField uses standard form validation behaviour.
 If spam submit was detected - ``ValidationError`` with ``spam-protection`` code will be raised.
 
 
@@ -36,7 +36,7 @@ Akismet
 Akismet is an advanced hosted anti-spam service aimed at thwarting the underbelly of the web.
 It efficiently processes and analyzes masses of data from millions of sites and communities in real time.
 
-.. seealso:: You can read more at Akismet `official website <https://akismet.com/>`_.
+.. seealso:: You can read more at Akismet `official website <https://akismet.com/>`__.
 
 Use Akismet protection for your project:
 
@@ -51,14 +51,14 @@ Use Akismet protection for your project:
 
         comment = forms.TextField()
 
-        def __init__(**kwargs):
+        def __init__(self, **kwargs):
             self.request = kwargs.pop('request', None)
 
             super().__init__(**kwargs)
 
         def clean():
-            if akismet.check(
-                request=akismet.Request.from_django_request(self.request) if self.request else None,
+            if self.request and akismet.check(
+                request=akismet.Request.from_django_request(self.request),
                 comment=akismet.Comment(
                     content=self.cleaned_data['comment'],
                     type='comment',
@@ -71,7 +71,7 @@ Use Akismet protection for your project:
             ):
                 raise ValidationError('Spam detected', code='spam-protection')
 
-            super().clean()
+            return super().clean()
 
 
 CAPTCHA
@@ -91,9 +91,9 @@ reCAPTCHA V2
 **reCAPTCHA** is a free service that protects your website from spam and abuse. reCAPTCHA uses an advanced risk analysis engine
 and adaptive CAPTCHAs to keep automated software from engaging in abusive activities on your site.
 
-.. seealso:: You can read more at google reCAPTCHA `official website <https://www.google.com/recaptcha>`_.
+.. seealso:: You can read more at google reCAPTCHA `official website <https://www.google.com/recaptcha>`__.
 
-Use ReCAPTCHA protection in your project form:
+To use reCAPTCHA protection in your project form, add ``ReCAPTCHA`` field:
 
 ..  code-block:: python
 
@@ -107,9 +107,9 @@ Use ReCAPTCHA protection in your project form:
 
 **django-antispam** package provides 2 widgets of reCAPTCHA:
  * ``antispam.captcha.widgets.ReCAPTCHA`` - default reCAPTCHA v2 widget
- * ``antispam.captcha.widgets.InvisibleReCAPTCHA`` - reCAPTCHA Invisible widget
+ * ``antispam.captcha.widgets.InvisibleReCAPTCHA`` - invisible reCAPTCHA widget
 
-To display reCAPTCHA on website page, you should add reCAPTCHA js script into the template:
+To display reCAPTCHA on website page, you should add reCAPTCHA script into the template:
 
 ..  code-block:: django
 
