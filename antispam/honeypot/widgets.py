@@ -17,5 +17,5 @@ class HoneypotInput(forms.TextInput):
         Returns this widget rendered as HTML.
         """
         return mark_safe(
-            '<div style="display: none;">%s</div>' % str(super().render(*args, **kwargs))
+            '<div style="display: none;">%s</div>' % str(super(HoneypotInput, self).render(*args, **kwargs))
         )
