@@ -44,7 +44,7 @@ class ReCAPTCHA(forms.Field):
         elif isinstance(kwargs['widget'], type):
             kwargs['widget'] = kwargs['widget'](sitekey=self.sitekey)
 
-        super().__init__(**kwargs)
+        super(ReCAPTCHA, self).__init__(**kwargs)
 
     def validate(self, value):
         """
@@ -53,7 +53,7 @@ class ReCAPTCHA(forms.Field):
         :raise ValidationError with code="captcha-error" if reCAPTCHA service is unavailable or working incorrectly.
         :raise ValidationError with code="captcha-invalid" if reCAPTCHA validation failed.
         """
-        super().validate(value)
+        super(ReCAPTCHA, self).validate(value)
 
         try:
             resp = requests.post('https://www.google.com/recaptcha/api/siteverify', {

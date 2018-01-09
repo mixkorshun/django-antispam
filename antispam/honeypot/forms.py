@@ -21,7 +21,7 @@ class HoneypotField(forms.CharField):
         kwargs.setdefault('max_length', 255)
         kwargs.setdefault('widget', HoneypotInput)
 
-        super().__init__(**kwargs)
+        super(HoneypotField, self).__init__(**kwargs)
 
     def validate(self, value):
         """
@@ -30,7 +30,7 @@ class HoneypotField(forms.CharField):
         :param value: user-input
         :raise: ValidationError with code="spam-protection" if honeypot check failed.
         """
-        super().validate(value)
+        super(HoneypotField, self).validate(value)
 
         if value:
             raise ValidationError(self.error_messages['honeypot'], code='spam-protection')

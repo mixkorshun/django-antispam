@@ -12,7 +12,7 @@ class ReCAPTCHA(forms.Widget):
         """
         :param sitekey: site key (public key) 
         """
-        super().__init__()
+        super(ReCAPTCHA, self).__init__()
 
         self.sitekey = sitekey
 
