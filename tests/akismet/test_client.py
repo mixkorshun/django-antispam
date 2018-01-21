@@ -1,6 +1,7 @@
 from copy import copy
 from unittest import TestCase
-from unittest.mock import Mock
+
+from mock import Mock
 
 from antispam.akismet import client
 from antispam.akismet.entities import Request, Comment

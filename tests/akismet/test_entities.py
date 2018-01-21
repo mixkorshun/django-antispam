@@ -1,5 +1,7 @@
 from unittest import TestCase
-from unittest.mock import Mock
+
+import time
+from mock import Mock
 
 from antispam.akismet.entities import Request, Author, Site, Comment
 
@@ -66,7 +68,7 @@ class CommentTests(TestCase):
 
         self.assertEqual({
             'comment_content': '<my comment>',
-            'comment_date': comment.created.timestamp(),
+            'comment_date': int(time.mktime(comment.created.timetuple())),
             'comment_type': 'comment',
             'permalink': 'http://mike.example.com/comment-1/',
         }, comment.as_params())
@@ -79,5 +81,12 @@ class CommentTests(TestCase):
 
         params = comment.as_params()
 
-        self.assertLess(author.as_params().items(), params.items(), 'all author params should be in comment params')
-        self.assertLess(site.as_params().items(), params.items(), 'all site params should be in comment params')
+        params = set(params.keys())
+
+        author_params = set(author.as_params().keys())
+        site_params = set(site.as_params().keys())
+
+        self.assertTrue(author_params.issubset(params),
+                        'all author params should be in comment params')
+        self.assertTrue(site_params.issubset(params),
+                        'all site params should be in comment params')

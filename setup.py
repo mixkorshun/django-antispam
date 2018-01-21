@@ -22,6 +22,10 @@ setup(
         'python-akismet',
     ],
 
+    tests_require=[
+        'mock',
+    ],
+
     packages=find_packages(exclude=['tests.*', 'tests']),
 
     test_suite='tests',

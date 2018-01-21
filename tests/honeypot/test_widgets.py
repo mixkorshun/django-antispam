@@ -1,5 +1,5 @@
 from unittest import TestCase, skipIf
-from unittest.mock import Mock
+from mock import Mock
 
 import django
 from django.utils.safestring import SafeData
