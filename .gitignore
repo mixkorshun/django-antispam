@@ -9,3 +9,6 @@
 /build
 /*.egg-info
 /docs/_build
+
+*.pyc
+__pycache__
