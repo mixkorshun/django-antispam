@@ -1,6 +1,6 @@
+import time
 from unittest import TestCase
 
-import time
 from mock import Mock
 
 from antispam.akismet.entities import Request, Author, Site, Comment
@@ -30,7 +30,8 @@ class RequestTests(TestCase):
 
 class AuthorTests(TestCase):
     def test_to_params(self):
-        author = Author('Mike', 'mike@mail.loc', 'http://mike.example.com', role='moderator')
+        author = Author('Mike', 'mike@mail.loc', 'http://mike.example.com',
+                        role='moderator')
 
         self.assertEqual({
             'comment_author': 'Mike',
@@ -64,7 +65,8 @@ class SiteTests(TestCase):
 
 class CommentTests(TestCase):
     def test_to_params(self):
-        comment = Comment('<my comment>', type='comment', permalink='http://mike.example.com/comment-1/')
+        comment = Comment('<my comment>', type='comment',
+                          permalink='http://mike.example.com/comment-1/')
 
         self.assertEqual({
             'comment_content': '<my comment>',
@@ -74,7 +76,8 @@ class CommentTests(TestCase):
         }, comment.as_params())
 
     def test_to_params_related_resources(self):
-        author = Author('Mike', 'mike@mail.loc', 'http://mike.example.com', role='moderator')
+        author = Author('Mike', 'mike@mail.loc', 'http://mike.example.com',
+                        role='moderator')
         site = Site('http://mike.example.com/', language_code='it')
 
         comment = Comment('<my comment>', author=author, site=site)

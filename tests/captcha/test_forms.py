@@ -1,8 +1,8 @@
 import json
 from unittest import TestCase
-from mock import patch
 
 from django.core.exceptions import ValidationError
+from mock import patch
 from requests import ConnectionError, Response
 
 from antispam.captcha import widgets
@@ -73,7 +73,8 @@ class ReCAPTCHATests(TestCase):
 
     @patch('antispam.captcha.forms.requests')
     def test_recaptcha_validation_failed(self, requests):
-        requests.post.return_value = self._get_response({'success': False, 'error-codes': ['invalid-input-response']})
+        requests.post.return_value = self._get_response(
+            {'success': False, 'error-codes': ['invalid-input-response']})
 
         with self.assertRaises(ValidationError) as e:
             self.field.validate('1234')
@@ -82,7 +83,8 @@ class ReCAPTCHATests(TestCase):
 
     @patch('antispam.captcha.forms.requests')
     def test_recaptcha_validation_unexpected_error(self, requests):
-        requests.post.return_value = self._get_response({'success': False, 'error-codes': ['bad-request']})
+        requests.post.return_value = self._get_response(
+            {'success': False, 'error-codes': ['bad-request']})
 
         with self.assertRaises(ValidationError) as e:
             self.field.validate('1234')
@@ -102,7 +104,8 @@ class ReCAPTCHATests(TestCase):
     def test_recaptcha_pass_on_error_unexpected_error(self, requests):
         self.field.pass_on_error = True
 
-        requests.post.return_value = self._get_response({'success': False, 'error-codes': ['bad-request']})
+        requests.post.return_value = self._get_response(
+            {'success': False, 'error-codes': ['bad-request']})
 
         self.field.validate('1234')
         self.assertTrue(True)

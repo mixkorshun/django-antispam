@@ -1,7 +1,6 @@
 from unittest import TestCase
-from mock import Mock
 
-from django.http import HttpRequest
+from mock import Mock
 
 from antispam.akismet.utils import get_client_ip
 

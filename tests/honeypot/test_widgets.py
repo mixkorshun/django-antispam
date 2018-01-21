@@ -1,8 +1,7 @@
-from unittest import TestCase, skipIf
-from mock import Mock
+from unittest import TestCase
 
-import django
 from django.utils.safestring import SafeData
+from mock import Mock
 
 from antispam.honeypot.widgets import HoneypotInput
 
