@@ -10,7 +10,7 @@ class ReCAPTCHA(forms.Widget):
 
     def __init__(self, sitekey):
         """
-        :param sitekey: site key (public key) 
+        :param sitekey: site key (public key)
         """
         super(ReCAPTCHA, self).__init__()
 
@@ -20,9 +20,10 @@ class ReCAPTCHA(forms.Widget):
         """
         Returns this widget rendered as HTML.
         """
-        return mark_safe('<div class="g-recaptcha" data-sitekey="%(sitekey)s"></div>' % {
-            'sitekey': self.sitekey
-        })
+        return mark_safe(
+            '<div class="g-recaptcha" data-sitekey="%(sitekey)s"></div>' % {
+                'sitekey': self.sitekey
+            })
 
     def value_from_datadict(self, data, files, name):
         """
@@ -43,7 +44,8 @@ class InvisibleReCAPTCHA(ReCAPTCHA):
         """
 
         return mark_safe(
-            '<button class="g-recaptcha" data-sitekey="%(sitekey)s">%(name)s</button>' % {
+            '<button class="g-recaptcha" data-sitekey="%(sitekey)s">'
+            '%(name)s</button>' % {
                 'name': name,
                 'sitekey': self.sitekey
             }

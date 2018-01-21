@@ -26,11 +26,13 @@ class HoneypotField(forms.CharField):
     def validate(self, value):
         """
         Validates form field value entered by user.
-        
+
         :param value: user-input
-        :raise: ValidationError with code="spam-protection" if honeypot check failed.
+        :raise: ValidationError with code="spam-protection"
+                if honeypot check failed.
         """
         super(HoneypotField, self).validate(value)
 
         if value:
-            raise ValidationError(self.error_messages['honeypot'], code='spam-protection')
+            raise ValidationError(self.error_messages['honeypot'],
+                                  code='spam-protection')

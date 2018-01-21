@@ -5,9 +5,10 @@ from django.utils.safestring import mark_safe
 class HoneypotInput(forms.TextInput):
     """
     Default honeypot field widget.
-    
+
     Display text input in hidden div.
     """
+
     @property
     def is_hidden(self):
         return True
@@ -17,5 +18,6 @@ class HoneypotInput(forms.TextInput):
         Returns this widget rendered as HTML.
         """
         return mark_safe(
-            '<div style="display: none;">%s</div>' % str(super(HoneypotInput, self).render(*args, **kwargs))
+            '<div style="display: none;">%s</div>' % str(
+                super(HoneypotInput, self).render(*args, **kwargs))
         )

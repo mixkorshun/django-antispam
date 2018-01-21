@@ -13,7 +13,7 @@ class Request:
     def from_django_request(cls, request):
         """
         Create Akismet request from django HttpRequest.
-        
+
         :type request: django.http.HttpRequest
         """
         return cls(
@@ -35,7 +35,7 @@ class Request:
     def as_params(self):
         """
         Converts object to Akismet request params.
-        
+
         :rtype dict
         """
         return {
@@ -48,7 +48,7 @@ class Request:
 class Author:
     """
     Akismet author.
-    
+
     Contains author specific data.
     """
 
@@ -68,10 +68,11 @@ class Author:
 
     def __init__(self, name=None, email=None, url=None, role=None):
         """
-        :param name: user full name 
+        :param name: user full name
         :param email: user email
         :param url: user website (url)
-        :param role: user role, if administrator then Akismet should not check it for spam.
+        :param role: user role, if administrator then Akismet
+                     should not check it for spam.
         """
         self.name = name
         self.email = email
@@ -122,10 +123,12 @@ class Comment:
     Contains comment specific data, including author and site.
     """
 
-    def __init__(self, content, type=None, permalink=None, author=None, site=None):
+    def __init__(self, content, type=None, permalink=None, author=None,
+                 site=None):
         """
-        :param content: comment text 
-        :param type: comment type (free form string relevant to comment type, for example: feedback, post, ...)
+        :param content: comment text
+        :param type: comment type (free form string relevant to comment type,
+                     for example: feedback, post, ...)
         :param permalink: link to comment on site
         :param author: comment author
         :param site: comment site(blog)

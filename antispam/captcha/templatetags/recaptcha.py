@@ -11,4 +11,6 @@ def recaptcha_init():
     """
     url = 'https://www.google.com/recaptcha/api.js'
 
-    return mark_safe('<script type="text/javascript" src="%s" async defer></script>' % url)
+    return mark_safe(
+        '<script type="text/javascript" src="%s" async defer></script>' % url
+    )

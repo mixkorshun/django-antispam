@@ -28,9 +28,9 @@ def get_connection(api_key=None, blog=None, is_test=None):
 def check(request, comment):
     """
     Checks given comment to spam by Akismet.
-    
+
     :type request: antispam.akismet.Request
-    :type request: antispam.akismet.Comment 
+    :type request: antispam.akismet.Comment
     :return: True if comment is spam, otherwise False
     """
     params = {}
@@ -44,11 +44,11 @@ def check(request, comment):
 def submit(request, comment, is_spam):
     """
     Submit given comment to Akismet.
-    
+
     Information about the comment status must be provided (spam/not spam).
 
     :type request: antispam.akismet.Request
-    :type request: antispam.akismet.Comment 
+    :type request: antispam.akismet.Comment
     :type is_spam: bool
     """
 

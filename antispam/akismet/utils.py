@@ -1,9 +1,10 @@
 def get_client_ip(request):
     """
     Get client ip address.
-    
-    Detect ip address provided by HTTP_X_REAL_IP, HTTP_X_FORWARDED_FOR and REMOTE_ADDR meta headers.
-    
+
+    Detect ip address provided by HTTP_X_REAL_IP, HTTP_X_FORWARDED_FOR
+    and REMOTE_ADDR meta headers.
+
     :param request: django request
     :return: ip address
     """
