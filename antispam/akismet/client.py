@@ -30,7 +30,7 @@ def check(request, comment):
     Checks given comment to spam by Akismet.
 
     :type request: antispam.akismet.Request
-    :type request: antispam.akismet.Comment
+    :type comment: antispam.akismet.Comment
     :return: True if comment is spam, otherwise False
     """
     params = {}
@@ -48,7 +48,7 @@ def submit(request, comment, is_spam):
     Information about the comment status must be provided (spam/not spam).
 
     :type request: antispam.akismet.Request
-    :type request: antispam.akismet.Comment
+    :type comment: antispam.akismet.Comment
     :type is_spam: bool
     """
 
