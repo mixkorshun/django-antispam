@@ -1,4 +1,7 @@
 /.idea
+/.tox
+/.eggs
+/*.egg-info
 
 /.coverage
 /.eggs
