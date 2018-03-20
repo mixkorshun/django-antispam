@@ -93,7 +93,15 @@ and adaptive CAPTCHAs to keep automated software from engaging in abusive activi
 
 .. seealso:: You can read more at google reCAPTCHA `official website <https://www.google.com/recaptcha>`__.
 
-To use reCAPTCHA protection in your project form, add ``ReCAPTCHA`` field:
+To use reCAPTCHA protection in your project form, obtain keys `from Google <https://www.google.com/recaptcha/admin>`, add them to ``SETTINGS``: 
+
+..  code-block:: python
+
+    RECAPTCHA_SITEKEY = 'sitekey'
+
+    RECAPTCHA_SECRETKEY = 'secretkey'
+       
+and add ``ReCAPTCHA`` field:
 
 ..  code-block:: python
 
