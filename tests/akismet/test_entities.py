@@ -70,7 +70,7 @@ class CommentTests(TestCase):
 
         self.assertEqual({
             'comment_content': '<my comment>',
-            'comment_date': int(time.mktime(comment.created.timetuple())),
+            'comment_date': comment.created,
             'comment_type': 'comment',
             'permalink': 'http://mike.example.com/comment-1/',
         }, comment.as_params())

@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from .utils import get_client_ip, get_timestamp
+from .utils import get_client_ip
 
 
 class Request:
@@ -152,7 +152,7 @@ class Comment:
         params = {
             'comment_type': self.type,
             'comment_content': self.content,
-            'comment_date': get_timestamp(self.created),
+            'comment_date': self.created,
             'permalink': self.permalink,
         }
 
