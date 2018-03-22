@@ -18,11 +18,3 @@ def get_client_ip(request):
         return x_forwarded_for.split(',')[0]
 
     return request.META.get('REMOTE_ADDR')
-
-
-def get_timestamp(dt):
-    try:
-        return int(dt.timestamp())
-    except AttributeError:
-        import time
-        return int(time.mktime(dt.timetuple()))
