@@ -23,7 +23,7 @@ setup(
     ],
 
     tests_require=[
-        'mock',
+        'mock~=3.0',
     ],
 
     packages=find_packages(exclude=['tests.*', 'tests']),
