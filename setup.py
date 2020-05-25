@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-antispam',
-    version='1.0.1',
+    version='1.0.2',
     url='https://github.com/mixkorshun/django-antispam',
     description='Anti-spam protection tools for django applications.',
     keywords=['anti-spam', 'antispam', 'spam'],
