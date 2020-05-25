@@ -1,6 +1,6 @@
-from copy import copy
 from unittest import TestCase
 
+from django.conf import settings
 from mock import Mock
 
 from antispam.akismet import client
@@ -10,17 +10,14 @@ from antispam.akismet.entities import Request, Comment
 class ClientTests(TestCase):
     def setUp(self):
         self.get_connection_backup = client.get_connection
-        self.settings_backup = copy(client.settings)
 
         self.connection = Mock()
         client.get_connection = Mock(return_value=self.connection)
-        client.settings = {
-            'AKISMET_API_KEY': 'api-key'
-        }
+        settings.AKISMET_API_KEY = 'api-key'
 
     def test_get_connection(self):
         client.get_connection = self.get_connection_backup
-        client.settings = self.settings_backup
+        del client.settings.AKISMET_API_KEY
 
     def test_submit(self):
         client.submit(Request(), comment=Comment('my comment'), is_spam=True)
